@@ -1,10 +1,13 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Search, Bell, User, ShoppingCart, Waves } from 'lucide-react'
 
 const NAV_ITEMS = [
   { to: '/marketplace', label: 'Marketplace' },
   { to: '/marketplace', label: 'Categories' },
-  { to: '/', label: 'Freshness Guide' },
+  // No dedicated guide page in this scaffold — kept as a plain (never-active)
+  // link to the home page's "Harga turun mengikuti kesegaran" explainer
+  // rather than falsely claiming an "active" nav state on every other page.
+  { to: '/', label: 'Freshness Guide', matchActive: false },
   { to: '/checkout', label: 'Orders' },
 ]
 
@@ -18,16 +21,21 @@ export default function Navbar() {
         </NavLink>
 
         <nav className="nav-links">
-          {NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.label}
-              to={item.to}
-              end={item.to === '/'}
-              className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-            >
-              {item.label}
-            </NavLink>
-          ))}
+          {NAV_ITEMS.map((item) =>
+            item.matchActive === false ? (
+              <Link key={item.label} to={item.to} className="nav-link">
+                {item.label}
+              </Link>
+            ) : (
+              <NavLink
+                key={item.label}
+                to={item.to}
+                className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+              >
+                {item.label}
+              </NavLink>
+            ),
+          )}
         </nav>
 
         <div className="nav-search">

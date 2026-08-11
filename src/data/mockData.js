@@ -423,9 +423,18 @@ export function freshnessTier(pct) {
   return 'budget'
 }
 
+export function formatMinutes(mins) {
+  const h = Math.floor(mins / 60)
+  const m = mins % 60
+  return h > 0 ? `${h}j ${m}m` : `${m}m`
+}
+
+// Compact form ("2j lalu") — used on pill badges where space is tight
+// (product card thumbnails, cart line items). The full "2 jam lalu" form
+// was overflowing the 96px cart thumbnail badge.
 export function timeAgo(hours) {
-  if (hours < 1) return '<1 jam lalu'
-  return `${hours} jam lalu`
+  if (hours < 1) return '<1j lalu'
+  return `${hours}j lalu`
 }
 
 export function hashString(str) {

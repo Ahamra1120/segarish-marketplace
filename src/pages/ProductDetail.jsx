@@ -2,13 +2,7 @@ import { useParams } from 'react-router-dom'
 import { Anchor, Bell, MapPin, Snowflake, User, Waves } from 'lucide-react'
 import { Button, PriceDisplay, ProductImage, StatCard, TimeStampBadge } from '../components/ui.jsx'
 import PriceFreshnessChart from '../components/PriceFreshnessChart.jsx'
-import { getProductById } from '../data/mockData.js'
-
-function formatMinutes(mins) {
-  const h = Math.floor(mins / 60)
-  const m = mins % 60
-  return h > 0 ? `${h}j ${m}m` : `${m}m`
-}
+import { formatMinutes, getProductById } from '../data/mockData.js'
 
 export default function ProductDetail() {
   const { id } = useParams()

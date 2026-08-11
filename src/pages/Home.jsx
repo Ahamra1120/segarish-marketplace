@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { Badge, Button, ProductImage, WaveDivider } from '../components/ui.jsx'
 import ProductCard from '../components/ProductCard.jsx'
-import { getProductById, featuredListingId, products, rupiah } from '../data/mockData.js'
+import { getProductById, featuredListingId, formatMinutes, products, rupiah } from '../data/mockData.js'
 
 const CATEGORY_SECTIONS = [
   {
@@ -58,7 +58,7 @@ export default function Home() {
               <div>
                 <div className="hero-card-name">{featured.name}</div>
                 <div className="hero-card-drop">
-                  Turun {rupiah(priceDrop)} dalam {featured.nextDropEtaMinutes} mnt
+                  Turun {rupiah(priceDrop)} dalam {formatMinutes(featured.nextDropEtaMinutes)}
                 </div>
               </div>
               <div className="hero-card-price">
