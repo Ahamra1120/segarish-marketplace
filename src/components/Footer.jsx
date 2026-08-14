@@ -13,10 +13,10 @@ export default function Footer() {
           <div className="footer-brand">
             <div className="brand-mark">
               <Waves size={20} />
-              SEGARISH
+              SEGARFISH
             </div>
             <p className="text-body-md" style={{ color: '#9fbcbd' }}>
-              © 2026 SEGARISH. Maritime Modern Freshness.
+              © 2026 SEGARFISH. Maritime Modern Freshness.
             </p>
           </div>
 

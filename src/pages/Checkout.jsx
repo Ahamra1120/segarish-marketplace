@@ -84,7 +84,7 @@ export default function Checkout() {
 
             <div className="guarantee-badge">
               <ShieldCheck size={18} />
-              Segarish Freshness Guarantee
+              Segarfish Freshness Guarantee
             </div>
 
             <div className="address-row">

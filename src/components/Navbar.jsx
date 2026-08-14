@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
-import { Search, Bell, User, ShoppingCart, Waves } from 'lucide-react'
+import { Search, Bell, User, ShoppingCart } from 'lucide-react'
 
 const NAV_ITEMS = [
   { to: '/marketplace', label: 'Marketplace' },
@@ -16,8 +16,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container navbar-inner">
         <NavLink to="/" className="brand-mark">
-          <Waves size={22} />
-          SEGARISH
+          <img src="/landscape-logo-SEGARFISH.png" alt="SEGARFISH" className="brand-mark-img" />
         </NavLink>
 
         <nav className="nav-links">

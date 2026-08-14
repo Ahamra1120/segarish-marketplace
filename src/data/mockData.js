@@ -1,5 +1,5 @@
 /**
- * SEGARISH Marketplace — mock data
+ * SEGARFISH Marketplace — mock data
  * All prices in IDR. Freshness is a 0-100 score driven by hours-since-catch
  * and cold-chain integrity; price decays as freshness time increases.
  *

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SEGARISH Marketplace — Design System
+   SEGARFISH Marketplace — Design System
    "Maritime Modernism" — see ../design.md for the full spec.
    Primary brand color #09949b is canonical (overrides design.md frontmatter's
    #00666c/#008188 MD3 tokens per explicit brand direction).
@@ -283,6 +283,7 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .brand-mark { display: flex; align-items: center; gap: 8px; font: 800 20px/1 var(--font); color: var(--brand); letter-spacing: -.01em; }
 .brand-mark svg { flex-shrink: 0; }
+.brand-mark-img { height: 36px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: var(--space-3); }
 .nav-link { color: var(--text-1); font-weight: 500; font-size: 15px; position: relative; padding-bottom: 4px; }
 .nav-link.active { color: var(--brand); font-weight: 600; }
