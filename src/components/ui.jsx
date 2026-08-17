@@ -179,14 +179,25 @@ const IMAGE_GRADIENTS = [
  * photography (no photo assets in this scaffold — see design.md's "Product
  * Cards" spec for the intended photo + gradient-overlay treatment).
  * `children` is absolutely positioned on top for badges (TimeStampBadge, tags).
+ * When `product.image` is set, the real photo is rendered (object-fit: cover)
+ * instead of the gradient placeholder.
  */
 export function ProductImage({ product, size = 'md', className = '', children }) {
+  const classes = ['product-image', `size-${size}`, className].filter(Boolean).join(' ')
+
+  if (product?.image) {
+    return (
+      <div className={classes}>
+        <img src={product.image} alt={product.name || ''} className="product-image-photo" />
+        <div className="product-image-wave" />
+        {children}
+      </div>
+    )
+  }
+
   const gradient = IMAGE_GRADIENTS[hashString(product?.id || 'x') % IMAGE_GRADIENTS.length]
   return (
-    <div
-      className={['product-image', `size-${size}`, className].filter(Boolean).join(' ')}
-      style={{ background: gradient }}
-    >
+    <div className={classes} style={{ background: gradient }}>
       <Fish size={size === 'sm' ? 34 : size === 'lg' ? 84 : 60} strokeWidth={1.4} />
       <div className="product-image-wave" />
       {children}
