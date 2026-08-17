@@ -9,7 +9,7 @@ const SERVICE_FEE = 5000
 
 const INITIAL_CART = [
   { id: 'p14', qty: 1 },
-  { id: 'p12', qty: 2 },
+  { id: 'p4', qty: 2 },
 ]
 
 export default function Checkout() {

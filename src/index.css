@@ -398,10 +398,15 @@ h1, h2, h3, h4, p { margin: 0; }
 .category-card-overlay p { font-size: 13px; color: #d7ecec; margin-top: 4px; }
 .category-card-large .category-card-overlay h3 { font-size: 26px; }
 
+/* Single full-width variant — used while only one category has photography */
+.category-card-banner { height: 320px; }
+.category-card-banner .category-card-overlay h3 { font-size: 26px; }
+
 @media (max-width: 900px) {
   .category-grid { grid-template-columns: 1fr; grid-template-rows: none; height: auto; }
   .category-card { height: 220px; }
   .category-card-large { grid-row: auto; height: 280px; }
+  .category-card-banner { height: 220px; }
 }
 
 /* ---------- Product grid ---------- */

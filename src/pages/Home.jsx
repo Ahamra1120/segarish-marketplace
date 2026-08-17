@@ -4,21 +4,14 @@ import { Badge, Button, ProductImage, WaveDivider } from '../components/ui.jsx'
 import ProductCard from '../components/ProductCard.jsx'
 import { getProductById, featuredListingId, formatMinutes, products, rupiah } from '../data/mockData.js'
 
-const CATEGORY_SECTIONS = [
-  {
-    name: 'Ikan Laut',
-    subtitle: 'Tangkapan segar langsung dari nelayan pesisir.',
-    large: true,
-  },
-  {
-    name: 'Ikan Air Tawar',
-    subtitle: 'Dari tambak & keramba mitra terpercaya.',
-  },
-  {
-    name: 'Kerang & Udang',
-    subtitle: 'Hasil laut premium, dipanen harian.',
-  },
-]
+// Only "Ikan Laut" has real photography in the catalog right now (see
+// mockData.js), so this stays a single banner instead of a 3-tile grid —
+// re-expand once Freshwater/Kerang & Udang have photos of their own.
+const FEATURED_CATEGORY = {
+  name: 'Ikan Laut',
+  subtitle: 'Tangkapan segar langsung dari nelayan pesisir.',
+  image: '/products/ikan-tuna.jpg',
+}
 
 export default function Home() {
   const featured = getProductById(featuredListingId)
@@ -81,21 +74,16 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="category-grid">
-            {CATEGORY_SECTIONS.map((cat) => (
-              <Link
-                key={cat.name}
-                to={`/marketplace?category=${encodeURIComponent(cat.name)}`}
-                className={`category-card${cat.large ? ' category-card-large' : ''}`}
-              >
-                <ProductImage product={{ id: cat.name }} size="lg" />
-                <div className="category-card-overlay">
-                  <h3>{cat.name}</h3>
-                  <p>{cat.subtitle}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <Link
+            to={`/marketplace?category=${encodeURIComponent(FEATURED_CATEGORY.name)}`}
+            className="category-card category-card-banner"
+          >
+            <ProductImage product={FEATURED_CATEGORY} size="lg" />
+            <div className="category-card-overlay">
+              <h3>{FEATURED_CATEGORY.name}</h3>
+              <p>{FEATURED_CATEGORY.subtitle}</p>
+            </div>
+          </Link>
         </div>
       </section>
 
